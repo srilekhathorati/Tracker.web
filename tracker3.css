@@ -1,0 +1,74 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+body{
+    background-color: rgb(147, 219, 219);
+}
+
+.content{
+    background-color: rgb(243, 241, 241);
+    width: 50%;
+    margin: auto;
+    min-height: 100vh;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+h1{
+    font-family:  Helvetica;
+    margin: 30px;
+    text-align: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+input , textarea , button{
+    padding: 10px;
+    border: 1px solid black;
+    font: 100 1.1rem Helvetica;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+button{
+    background-color: rgba(82, 212, 82, 0.982);
+    color: white;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: lime;
+}
+
+.chore{
+    background-color: azure;
+    font: 100 1.1rem Helvetica;
+    padding: 30px;
+    color: rgba(0, 0, 0, 0.728);
+    display: flex;
+    align-items:center;
+    margin: 2vmax;
+}
+
+.chore > div{
+    width: 100%;
+}
+
+.chore span{
+    color: rgba(0, 0, 0, 0.573);
+}
+.delete{
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    font-size: medium;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    background-color: crimson;
+}

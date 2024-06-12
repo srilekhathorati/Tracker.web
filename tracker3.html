@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track guide</title>
+    <link rel="stylesheet" href="tracker3.css">
+</head>
+<body>
+    <div class="content">
+        <h1>Aim Ahead</h1>
+        <form>
+            <input type="text" id="title" placeholder="Title Here">
+            <textarea id="Illustrate" placeholder="Illustrate Here"></textarea>
+            <button type="submit" class="incl"><b>INCLUDE</b></button>
+        </form>
+        <!--<div class="chore">
+            <div>
+                <p>Title Here</p>
+                <span>Illustrate Here</span>
+            </div>
+            <button class="delete">-</button>
+        </div>-->
+    </div>   
+</body>
+
+<script>
+    const tit = document.getElementById("title");
+    const desc = document.getElementById("Illustrate");
+    const form = document.querySelector("form");
+    const content = document.querySelector(".content");
+
+    const works = localStorage.getItem("works")? JSON.parse(localStorage.getItem("works")): [];
+    
+    displayall();
+    function displayall (){
+        works.forEach((value,index) =>{
+            const div = document.createElement("div");
+            div.setAttribute("class","chore");
+
+            const indiv = document.createElement("div");
+            div.append(indiv);
+
+            const p = document.createElement("p");
+            p.innerText = value.tit;
+            indiv.append(p);
+
+            const span = document.createElement("span");
+            span.innerText = value.desc;
+            indiv.append(span);
+
+            const btn = document.createElement("button");
+            btn.setAttribute("class","delete");
+
+            btn.innerText="-";
+
+            btn.addEventListener("click",()=>{
+                deletework();
+                works.splice(index, 1);
+                localStorage.setItem("works", JSON.stringify(works));
+                displayall();
+            })
+            div.append(btn);
+            content.append(div)
+        });
+    }
+
+    function deletework()
+    {
+        works.forEach(()=>{
+            const div = document.querySelector(".chore");
+            div.remove();
+        });
+    }
+
+    form.addEventListener("submit", (e) =>{
+        e.preventDefault();
+        deletework();
+        works.push({
+            tit: title.value, desc: Illustrate.value,
+        });
+        localStorage.setItem("works", JSON.stringify(works));
+        console.log(works);
+        displayall();
+    })
+</script>
+</html>
